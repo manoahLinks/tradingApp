@@ -4,6 +4,7 @@ const express = require('express'),
     cors = require('cors'),
     model = require('./models'),
     userRoute = require('./routes/user'),
+    cardRoute = require('./routes/card'),
     transactionRoute = require('./routes/transaction')
 
 app.use(cors())
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/users', userRoute)
+app.use('/api/v1/cards', cardRoute)
 app.use('/api/v1/transactions', transactionRoute)
 
 app.listen( process.env.PORT , () => {
