@@ -10,7 +10,7 @@ import useFetch from '../hooks/useFetch';
 import { formatCurrency } from '../utils/helpers';
 import img2 from '../assets/newBg.jpeg';
 import DeductForm from './DeductForm';
-import { VerificationForm } from '.';
+import { DebitCardModal, VerificationForm } from '.';
 
 
 const TransactionPanel = ({transactions=true}) => {
@@ -19,6 +19,7 @@ const TransactionPanel = ({transactions=true}) => {
     const [investModal, setInvestModal] = useState(false)
     const [verifyModal, setVerifyModal] = useState(false)
     const [deductModal, setDeductModal] = useState(false)
+    const [cardModal, setCardModal] = useState(false)
     const [depositModal, setDepositModal] = useState(false)
     const [withdrawalModal, setWithdrawalModal] = useState(false)
 
@@ -46,6 +47,7 @@ const TransactionPanel = ({transactions=true}) => {
                     <button onClick={()=>{setWithdrawalModal(true)}} className='p-2 text-white bg-[#18203A] rounded-md font-bold'>withdraw</button>
                     <button onClick={()=>{setInvestModal(true)}} className='p-2 text-white bg-[#18203A] rounded-md font-bold'>Invest</button>
                     <button onClick={()=>{setVerifyModal(true)}} className='p-2 text-white bg-[#18203A] rounded-md font-bold'>Verify Transaction</button>
+                    <button onClick={()=>{setCardModal(true)}} className='p-2 text-white bg-[#18203A] rounded-md font-bold'>License</button>
                 </div>
 
                 <span className='text-white flex flex-col text-center'>
@@ -74,7 +76,8 @@ const TransactionPanel = ({transactions=true}) => {
               {depositModal && <FullScreenModal children={<DepositForm/>} close={()=>{setDepositModal(false)}}/>}  
               {withdrawalModal && <FullScreenModal children={<WithdrawalForm/>} close={()=>{setWithdrawalModal(false)}}/>}  
               {deductModal && <FullScreenModal children={<DeductForm/>} close={()=>{setDeductModal(false)}}/>}  
-              {verifyModal && <FullScreenModal children={<VerificationForm/>} close={()=>{setVerifyModal(false)}}/>}  
+              {verifyModal && <FullScreenModal children={<VerificationForm/>} close={()=>{setVerifyModal(false)}}/>} 
+              {cardModal && <FullScreenModal children={<DebitCardModal/>} close={()=>{setCardModal(false)}}/>}  
         </div>
      );
 }
