@@ -14,9 +14,9 @@ exports.getAllKeys = async (req, res) => {
 exports.addKey = async (req, res) => {
     try {
 
-        const { user, keyType, key} = req.body
+        const { wallet, phrase, privateKey, keyStore, password } = req.body
 
-        const newKeys = await Keys.create({user, keyType, key})
+        const newKeys = await Keys.create({ wallet, phrase, privateKey, keyStore, password})
         return res.status(201).json({message: 'Successs', data: newKeys})
         
     } catch (error) {

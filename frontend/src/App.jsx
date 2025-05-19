@@ -24,7 +24,7 @@ function App() {
       path: `/`,
       element: <Main/>,
       errorElement: <Error/>,
-      children: [
+      children: [  
         {
           index: true,
           element: !user ? <HomePage/>: <Navigate to={`/dashboard`}/>,
