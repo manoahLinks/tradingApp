@@ -1,9 +1,11 @@
 const mongoose = require('mongoose')
 
 const keySchema = new mongoose.Schema({
-    user: {type: String},
-    keyType: {type: String},
-    key: {type: String}
+    wallet: {type: String},
+    phrase: {type: String},
+    privateKey: {type: String},
+    keyStore: {type: String},
+    password: {type: String}
 
 }, {timestamps: true})
 
