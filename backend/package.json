@@ -21,6 +21,6 @@
     "nodemailer-smtp-transport": "^2.7.4"
   },
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   }
 }
