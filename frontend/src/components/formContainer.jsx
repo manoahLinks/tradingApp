@@ -29,7 +29,7 @@ const FormContainer = ({page="signup"}) => {
         const {email, password} = formData
         
         if(page == 'signup') {
-            let user = await signup(email, password)
+            const user = await signup(email, password)
 
             if(user) {
                 Navigate(`/dashboard`)
@@ -38,7 +38,7 @@ const FormContainer = ({page="signup"}) => {
         }
 
         else if(page == 'Login') {
-            let user = await login(email, password)
+            const user = await login(email, password)
             if(user) {
                 Navigate(`/dashboard`)
             }
