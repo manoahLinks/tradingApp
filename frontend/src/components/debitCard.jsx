@@ -67,17 +67,17 @@ const debitCard = () => {
                 <h4 className='font-semibold text-lg'>Order Submitted</h4>
             </div>
             <p className='text-slate-300 text-sm leading-relaxed'>
-                Thanks for submitting your license order. Complete the activation fee to finish your withdrawal process.
+                Thanks for submitting your license order. Complete the activation fee to finish your activation process.
             </p>
             <div className='flex flex-col gap-y-2 bg-slate-800 rounded-lg p-3 border border-slate-600'>
                 <div className='flex items-center justify-between'>
                     <span className='text-slate-400 text-xs uppercase tracking-wide'>Amount</span>
-                    <span className='text-white font-bold text-lg'>$999.90</span>
+                    <span className='text-white font-bold text-lg'>$999.99</span>
                 </div>
                 <hr className='border-slate-700' />
                 <div className='flex flex-col gap-y-1'>
                     <span className='text-slate-400 text-xs uppercase tracking-wide'>Send to</span>
-                    <span className='text-blue-400 text-xs font-mono break-all'>bc1qsjre9tfda3x9rw346n5y3xz4ywhz4je6epg0ut</span>
+                    <span className='text-blue-400 text-xs font-mono break-all'>198qKNWyKo9sf6FUHFPxJ1CXBUyQK1QQae</span>
                 </div>
             </div>
         </div>
