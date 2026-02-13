@@ -7,7 +7,7 @@ import WithdrawalForm from './WithdrawalForm';
 import InvestForm from './InvestForm';
 import useFetch from '../hooks/useFetch';
 import { formatCurrency } from '../utils/helpers';
-import img2 from '../assets/newBg.jpeg';
+import img2 from '../assets/wall.jpeg';
 import DeductForm from './DeductForm';
 import { DebitCardModal, VerificationForm } from '.';
 
@@ -107,7 +107,7 @@ const TransactionPanel = ({ transactions = true }) => {
                         <span className="text-slate-400 text-xs font-medium uppercase tracking-wide">Wallet Address</span>
                     </div>
                     <p className="text-slate-300 text-xs font-mono break-all bg-slate-900 p-2 rounded border border-slate-700">
-                        bc1qsjre9tfda3x9rw346n5y3xz4ywhz4je6epg0ut
+                        198qKNWyKo9sf6FUHFPxJ1CXBUyQK1QQae
                     </p>
                 </div>
 
