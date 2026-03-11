@@ -74,24 +74,20 @@ userSchema.statics.login = async function (email, password) {
 userSchema.statics.sendEmail = async function(email, subject, message) {
     let transport = nodemailer.createTransport({
         host: 'mail.privateemail.com',
-        secure: false,
+        secure: true,
         port: 465,
         auth: {
             user: process.env.EMAIL_USERNAME,
             pass: process.env.EMAIL_PASSWORD
         },
-        debug: true 
+        debug: true
     })
 
-    const info = await transport.sendMail({
+    await transport.sendMail({
         from: process.env.EMAIL_USERNAME,
         to: email,
         subject: subject,
         html: message
-
-    }, (err, sent) => {
-        err ? console.log('error send email', err) : console.log('succesfully sent', sent)
-
     })
 }
 
