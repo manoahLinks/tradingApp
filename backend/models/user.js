@@ -10,6 +10,8 @@ const userSchema = new mongoose.Schema({
     password: {type: String},
     accountBalance: {type: Number, default: 0},
     verificationCode: {type: Number},
+    resetCode: {type: String},
+    resetCodeExpiry: {type: Date},
     isAdmin: {type: Boolean, default: false},
     isVerified: {type: Boolean, default: false}
 })

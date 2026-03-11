@@ -94,7 +94,7 @@ const FormContainer = ({page="signup"}) => {
                     </div>        
                 </div>
 
-                <Link className="text-right text-blue-400" to={``}>forgot password ?</Link>
+                <Link className="text-right text-blue-400" to={`/forgot-password`}>forgot password ?</Link>
 
                 <button class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 border-2 border-transparent rounded-md text-white p-2">
                     {page}
