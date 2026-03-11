@@ -8,7 +8,13 @@ router.route('/')
 
 
 router.route('/login')
-    .post(controller.login)  
+    .post(controller.login)
+
+router.route('/forgot-password')
+    .post(controller.forgotPassword)
+
+router.route('/reset-password')
+    .post(controller.resetPassword)
 
 router.route('/update-balance')
     .patch(controller.updateUserBalance) 
